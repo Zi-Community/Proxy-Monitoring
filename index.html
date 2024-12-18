@@ -41,9 +41,10 @@
     <table>
         <thead>
             <tr>
-                <th>Username Player</th>
+                <th>GrowID</th>
+                <th>UserID</th>
                 <th>Status</th>
-                <th>Terakhir Aktif</th>
+                <th>Last Active</th>
             </tr>
         </thead>
         <tbody id="player-table">
@@ -51,13 +52,13 @@
         </tbody>
     </table>
     <script>
-        fetch('https://your-vercel-app.vercel.app/players')
+        fetch('https://proxy-monitoring.vercel.app/players')  <!-- Gantilah dengan URL API yang benar -->
             .then(response => response.json())
             .then(players => {
                 const table = document.getElementById('player-table');
                 players.forEach(player => {
                     const row = document.createElement('tr');
-                    row.innerHTML = `<td>${player.playerName}</td><td>${player.status}</td><td>${player.last_active}</td>`;
+                    row.innerHTML = `<td>${player.GrowID}</td><td>${player.UserID}</td><td>${player.Status}</td><td>${player.Last_Active}</td>`;
                     table.appendChild(row);
                 });
             });
